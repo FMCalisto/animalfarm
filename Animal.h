@@ -1,17 +1,10 @@
 #ifndef __ANIMALFARM_ANIMAL_H__
 #define __ANIMALFARM_ANIMAL_H__
  
-#include <vector>
-
-// INCLUDES
-
-#include "Cat.h"
-#include "Dog.h"
+#include <iostream>
 
 namespace animalfarm
 {
-	class Cat;
-	class Dog;
 
 	class Animal
 	{
@@ -23,15 +16,42 @@ namespace animalfarm
 		bool _breed;
 		bool _alive;
 
-		std::vector<Cat*> _cat;
-		std::vector<Dog*> _dog;
-
-	public:
+	protected:
 		Animal(char name, char race, int age)
 			: _name(name), _race(race), _age(age), _breed(true), _alive(true) {}
 
+	public:
 		virtual ~Animal();
 
+	virtual bool grantBreed()
+	{
+		if(canGrantBreed())
+		{
+			incrementGranted();
+			doGrantBreed();
+
+			return true;
+		}
+
+		return false;
+	}
+
+	virtual bool itsAlive()
+	{
+		if(canBeAlive())
+		{
+			incrementAlivability();
+			doAliveMode;
+
+			return true;
+		}
+
+		return false;
+	}
+
+	/*
+
+	public:
 		char getName()
 			const
 			{
@@ -50,7 +70,7 @@ namespace animalfarm
 				return _age;
 			}
 
-		inline bool operator(const Animal &a)
+		inline bool operator==(const Animal &a)
 		{
 			return getName() == a.getName()
 					&&
@@ -59,4 +79,6 @@ namespace animalfarm
 				   getAge() == a.getAge();
 		}
 	};
+
+	*/
 } // namespace animalfarm
