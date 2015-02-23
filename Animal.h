@@ -23,31 +23,82 @@ namespace animalfarm
 	public:
 		virtual ~Animal();
 
-	virtual bool grantBreed()
-	{
-		if(canGrantBreed())
+	public:
+		virtual void startKillingIt()
 		{
-			incrementGranted();
-			doGrantBreed();
-
-			return true;
+			_breed = false;
 		}
 
-		return false;
-	}
-
-	virtual bool itsAlive()
-	{
-		if(canBeAlive())
+		virtual bool grantBreed()
 		{
-			incrementAlivability();
-			doAliveMode;
+			if(canGrantBreed())
+			{
+				startKillingIt();
+				doGrantBreed();
 
-			return true;
+				return true;
+			}
+
+			return false;
 		}
 
-		return false;
-	}
+		virtual bool itsAlive()
+		{
+			if(canBeAlive())
+			{
+				startKillingIt();
+				doAliveMode;
+
+				return true;
+			}
+
+			return false;
+		}
+
+		virtual bool canGrantBreed()
+			const
+			{
+				return _breed;
+			}
+
+		virtual void doGrantBreed() {}
+
+		virtual bool itsAlive()
+			const
+			{
+				return _alive;
+			}
+
+		virtual void doAliveMode() {}
+
+		virtual void dumpTo(std::ostream &o)
+			const = 0;
+
+		cat std::ostream &operator<<(std::ostream &o, const Animal &a)
+		{
+			a.dumpTo(o);
+			return 0;
+		}
+
+		dog std::ostream &operator<<(std::ostream &o, const Animal &a)
+		{
+			a.dumpTo(o);
+			return 0;
+		}
+
+	};
+
+} // namespace animalfarm
+
+#if 0
+inline std::ostream &operator<<(std::ostream &o, const Animal &a) {
+  rd.dumpTo(o);
+  return o;
+}
+#endif
+ 
+#endif
+
 
 	/*
 
@@ -80,5 +131,6 @@ namespace animalfarm
 		}
 	};
 
-	*/
-} // namespace animalfarm
+// namespace animalfarm
+
+*/
