@@ -8,6 +8,6 @@ File ```Animal.cpp``` contains the implementations of the functions not defined 
 
 Class Animal defines the basic behaviour for all animals. The whole class is defined in the header file (```Animal.h```).
 
-Note that the output operator by itself if not capable of handling the polymorphic access used in the ```main``` function (because it is used as an argument). For it to work correctly, we defined an abstract method (dumpTo) that each class must implement. This method will be correctly called in polymorphic situations.
+Note that the output operator by itself if not capable of handling the polymorphic access used in the ```main``` function (because it is used as an argument). For it to work correctly, we defined an abstract method (```dumpTo```) that each class must implement. This method will be correctly called in polymorphic situations.
 
 Note also that, since Animal is a class whose methods are to be redefined by subclasses and whose pointers will only point to subclass instances, needs a virtual destructor: in this was, the delete operator will look at the actual type of the object (instead of using the type of the pointer), allowing the correct destructor (that of the object's class and not the pointer's) to be called.
