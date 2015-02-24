@@ -24,6 +24,23 @@ namespace animalfarm
 		virtual ~Animal();
 
 	public:
+		virtual char getName()
+			const
+			{
+				return _name;
+			}
+		virtual char getRace
+			const
+			{
+				return _race;
+			}
+		virtual int getAge
+			const
+			{
+				return _age;
+			}
+
+	public:
 		virtual void startKillingIt()
 		{
 			_breed = false;
@@ -98,39 +115,3 @@ inline std::ostream &operator<<(std::ostream &o, const Animal &a) {
 #endif
  
 #endif
-
-
-	/*
-
-	public:
-		char getName()
-			const
-			{
-				return _name;
-			}
-
-		char getRace()
-			const
-			{
-				return _race;
-			}
-
-		int getAge()
-			const
-			{
-				return _age;
-			}
-
-		inline bool operator==(const Animal &a)
-		{
-			return getName() == a.getName()
-					&&
-				   getRace() == a.getRace()
-				   	&&
-				   getAge() == a.getAge();
-		}
-	};
-
-// namespace animalfarm
-
-*/
