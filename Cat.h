@@ -24,7 +24,7 @@ namespace animalfarm
 } //namespace animalfarm
 
 #if 0
-// alternative definition for output operator (non-friend)
+// alternative definition for output operator (non-cat)
 inline std::ostream &operator<<(std::ostream &o, const Cat &c)
 {
   c.dumpTo(o);
