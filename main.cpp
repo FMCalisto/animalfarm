@@ -13,8 +13,10 @@ namespace animalfarm
 
 int main()
 {
-	animalfarm::Animal::Cat *c[1];
-	animalfarm::Animal::Dog *d[1];
+	animalfarm::Cat *c[1];
+	animalfarm::Dog *d[1];
+
+	// ERROR
 
 	std::cout << *c <<std::endl;
 	std::cout << *d <<std::endl;
