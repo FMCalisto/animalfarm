@@ -15,3 +15,7 @@ Note also that, since Animal is a class whose methods are to be redefined by sub
 ## Class Cat
 
 A cat is almost like a general animal, it differs in the output messages and a cat can 'scratch' unlike the common animal and dog. Since it is a small class, it is completely defined in the header file (```Cat.h```).
+
+## Class Dog
+
+Like the other previous animal classes, this one is also very small and completely defined in the header file (```Dog.h```).
