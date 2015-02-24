@@ -3,6 +3,8 @@
  
 #include <iostream>
 
+#include "Animal.h"
+
 namespace animalfarm
 {
 	class Cat : public Animal

@@ -112,10 +112,13 @@ namespace animalfarm
 			return 0;
 		}
 
-		friend std::ostream &operator<<(std::ostream &o, const Animal &a)
+		inline bool operator==(const Animal &a)
 		{
-			a.dumpTo(o);
-			return 0;
+			return getName() == a.getName()
+					&&
+				   getRace() == a.getRace()
+				    &&
+				   getAge() == a.getAge();
 		}
 
 	};

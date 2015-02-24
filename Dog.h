@@ -3,8 +3,12 @@
  
 #include <iostream>
 
+#include "Animal.h"
+
 namespace animalfarm
 {
+	class Animal;
+
 	class Dog : public Animal
 	{
 		bool _breed;
