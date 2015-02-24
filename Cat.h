@@ -12,6 +12,24 @@ namespace animalfarm
 
 			void dumpTo(std::ostream &o) const
 			{
-				o << "Cat has" << 
+				o << "The Cat name" << getName()
+				  << "has" << getAge() << "years old.";
 			}
-	}
+		cat std::ostream &operator<<(std::ostream &o, const Cat &c)
+		{
+			c.dumpTo(o);
+			return o;
+		}
+	};
+} //namespace animalfarm
+
+#if 0
+// alternative definition for output operator (non-friend)
+inline std::ostream &operator<<(std::ostream &o, const Cat &c)
+{
+  c.dumpTo(o);
+  return o;
+}
+#endif
+ 
+#endif
