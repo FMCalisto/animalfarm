@@ -1,6 +1,6 @@
 # Animal Farm Problem
 
-## Class Animal
+### Class Animal
 
 File ```Animal.h``` contains the interface and a few small functions.
 
@@ -12,10 +12,20 @@ Note that the output operator by itself if not capable of handling the polymorph
 
 Note also that, since Animal is a class whose methods are to be redefined by subclasses and whose pointers will only point to subclass instances, needs a virtual destructor: in this was, the delete operator will look at the actual type of the object (instead of using the type of the pointer), allowing the correct destructor (that of the object's class and not the pointer's) to be called.
 
-## Class Cat
+### Class Cat
 
 A cat is almost like a general animal, it differs in the output messages and a cat can 'scratch' unlike the common animal and dog. Since it is a small class, it is completely defined in the header file (```Cat.h```).
 
-## Class Dog
+### Class Dog
 
 Like the other previous animal classes, this one is also very small and completely defined in the header file (```Dog.h```).
+
+## Compiling and Running
+
+The following commands are needed to compile the application (note that it suffices to compile the ```.cpp``` files).
+
+```
+g++ -ansi -pedantic -Wall -c Animal.cpp
+g++ -ansi -pedantic -Wall -c main.cpp
+g++ -o an Animal.o main.o
+```
