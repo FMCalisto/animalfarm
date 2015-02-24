@@ -7,19 +7,45 @@ namespace animalfarm
 {
 	class Cat : public Animal
 	{
+		bool _alive;
+
+		void startKillingIt()
+		{
+			_alive = false;
+		}
+
+		protected:
+			bool _scratch;
+
 		public:
 			Cat(char name) : Animal(name) {}
 
-			void dumpTo(std::ostream &o) const
+			void doScratch(std::ostream &o)
+				const
+				{
+					if(_scratch)
+					{
+						o << "The Cat scratch.";
+					}
+					else
+					{
+						o << "The Cat is dying." << startKillingIt();
+					}
+				}
+
+			void dumpTo(std::ostream &o)
+				const
+				{
+					o << "The Cat name" << getName()
+					  << "has" << getAge() << "years old.";
+				}
+
+			friend std::ostream &operator<<(std::ostream &o, const Cat &c)
 			{
-				o << "The Cat name" << getName()
-				  << "has" << getAge() << "years old.";
+				c.dumpTo(o);
+				c.doScratch(o);
+				return o;
 			}
-		cat std::ostream &operator<<(std::ostream &o, const Cat &c)
-		{
-			c.dumpTo(o);
-			return o;
-		}
 	};
 } //namespace animalfarm
 

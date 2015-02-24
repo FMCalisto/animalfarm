@@ -7,19 +7,30 @@ namespace animalfarm
 {
 	class Dog : public Animal
 	{
+		protected:
+			bool _bark;
+
 		public:
 			Dog(char name) : Animal(name) {}
 
-			void dumpTo(std::ostream &o) const
+			void doBark(std::ostream &o)
+				const
+				{
+					o << "The Dog bark."
+				}
+
+			void dumpTo(std::ostream &o)
+				const
+				{
+					o << "The Dog name" << getName()
+					  << "has" << getAge() << "years old.";
+				}
+
+			friend std::ostream &operator<<(std::ostream &o, const Dog &d)
 			{
-				o << "The Dog name" << getName()
-				  << "has" << getAge() << "years old.";
+				d.dumpTo(o);
+				return o;
 			}
-		cat std::ostream &operator<<(std::ostream &o, const Dog &d)
-		{
-			d.dumpTo(o);
-			return o;
-		}
 	};
 } //namespace animalfarm
 

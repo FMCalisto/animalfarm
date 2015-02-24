@@ -29,15 +29,30 @@ namespace animalfarm
 			{
 				return _name;
 			}
-		virtual char getRace
+		virtual char getRace()
 			const
 			{
 				return _race;
 			}
-		virtual int getAge
+		virtual int getAge()
 			const
 			{
 				return _age;
+			}
+		virtual bool canGrantBreed()
+			const
+			{
+				return _breed;
+			}
+		virtual bool canBeAlive()
+			const
+			{
+				return _alive;
+			}
+		virtual void doAliveMode()
+			const
+			{
+				_alive(true);
 			}
 
 	public:
@@ -91,13 +106,13 @@ namespace animalfarm
 		virtual void dumpTo(std::ostream &o)
 			const = 0;
 
-		cat std::ostream &operator<<(std::ostream &o, const Animal &a)
+		friend std::ostream &operator<<(std::ostream &o, const Animal &a)
 		{
 			a.dumpTo(o);
 			return 0;
 		}
 
-		dog std::ostream &operator<<(std::ostream &o, const Animal &a)
+		friend std::ostream &operator<<(std::ostream &o, const Animal &a)
 		{
 			a.dumpTo(o);
 			return 0;
