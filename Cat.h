@@ -7,11 +7,11 @@ namespace animalfarm
 {
 	class Cat : public Animal
 	{
-		bool _alive;
+		bool _breed;
 
 		void startKillingIt()
 		{
-			_alive = false;
+			_breed = false;
 		}
 
 		protected:
