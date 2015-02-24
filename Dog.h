@@ -7,6 +7,13 @@ namespace animalfarm
 {
 	class Dog : public Animal
 	{
+		bool _breed;
+
+		void startKillingIt()
+		{
+			_breed = false;
+		}
+
 		protected:
 			bool _bark;
 
@@ -16,7 +23,14 @@ namespace animalfarm
 			void doBark(std::ostream &o)
 				const
 				{
-					o << "The Dog bark."
+					if(_bark)
+					{
+						o << "The Dog bark.";
+					}
+					else
+					{
+						o << "The Dog is dying." << startKillingIt();
+					}
 				}
 
 			void dumpTo(std::ostream &o)
@@ -29,6 +43,7 @@ namespace animalfarm
 			friend std::ostream &operator<<(std::ostream &o, const Dog &d)
 			{
 				d.dumpTo(o);
+				d.doBark(o);
 				return o;
 			}
 	};
